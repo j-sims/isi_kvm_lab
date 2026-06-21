@@ -18,7 +18,7 @@ import subprocess
 import sys
 import time
 
-BOOT_DRIVE_DIR_DEFAULT = "/kvm-image-builder/bootdrives"
+BOOT_DRIVE_DIR_DEFAULT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bootdrives")
 STORAGE_SIZE_DEFAULT = "20G"
 NUM_NODES_DEFAULT = 3
 
@@ -720,7 +720,7 @@ BUILD OPTIONS:
   --version VERSION    OneFS version (e.g., 9.13.0.0r)
   --nodes NUM          Number of nodes (default: 3, must be 1 or 3+)
   --topdir DIR         Cluster directory (default: current directory)
-  --boot-dir DIR       Boot images directory (default: /kvm-image-builder/bootdrives)
+  --boot-dir DIR       Boot images directory (default: bootdrives/ next to this script)
   --boot-image PATH    Direct path to a boot drive qcow2 (overrides --boot-dir
                         and --version; version is inferred from the filename
                         if not given)

@@ -16,7 +16,7 @@ A Python tool for building, listing, and destroying Dell PowerScale (OneFS) prot
 
 The OneFS boot drive (`.qcow2`) is required to build a cluster. This file is not publicly distributed — contact your **Dell Technologies Solutions Engineer (SE)** to obtain the appropriate image for your OneFS version.
 
-By default the script looks for boot drives in `/kvm-image-builder/bootdrives/` named `v<version>.qcow2` (e.g. `v9.13.0.0r.qcow2`). You can override this with `--boot-dir` or supply a direct path with `--boot-image`.
+By default the script looks for boot drives in a `bootdrives/` directory next to the script, named `v<version>.qcow2` (e.g. `v9.13.0.0r.qcow2`). Override with `--boot-dir` or supply a direct path with `--boot-image`.
 
 ## Usage
 
@@ -86,7 +86,7 @@ Add `--force` to skip the confirmation prompt.
 | `--version VERSION` | (prompted) | OneFS version, e.g. `9.13.0.0r` |
 | `--nodes NUM` | `3` | Number of nodes (must be 1 or 3+; 2-node clusters are not supported) |
 | `--topdir DIR` | `.` | Parent directory for cluster files |
-| `--boot-dir DIR` | `/kvm-image-builder/bootdrives` | Directory containing boot drive images |
+| `--boot-dir DIR` | `<script-dir>/bootdrives` | Directory containing boot drive images |
 | `--boot-image PATH` | — | Direct path to a boot drive qcow2 (overrides `--boot-dir`/`--version`) |
 | `--storage-size SIZE` | `20G` | Size of each storage HDD image |
 | `--serial-port PORT` | (auto-detected) | Starting TCP port for serial/telnet consoles |
