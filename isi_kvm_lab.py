@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Build/destroy/list OneFS-on-KVM proto-storage clusters.
-
-Python port of build-kvm-pscale-cluster-v2.0.sh.  No ACS auto-cluster
-configuration is attempted -- OneFS does not support it on KVM, so
-clusters must be configured manually via the serial console after boot.
-"""
+"""Build/destroy/list OneFS-on-KVM proto-storage clusters."""
 
 import argparse
 import gzip
@@ -707,7 +702,7 @@ def parse_args():
 
 
 def usage():
-    print("""Usage: build-kvm-pscale-cluster-v3.0.py COMMAND [OPTIONS]
+    print("""Usage: isi_kvm_lab.py COMMAND [OPTIONS]
 
 COMMANDS:
   --build              Build a new cluster

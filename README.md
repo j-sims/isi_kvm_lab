@@ -2,7 +2,7 @@
 
 A Python tool for building, listing, and destroying Dell PowerScale (OneFS) prototype storage clusters running on KVM/QEMU.
 
-> **Note:** This is a port of `build-kvm-pscale-cluster-v2.0.sh` to Python 3. ACS (Auto-Cluster Setup) via the serial-console first-boot wizard is supported in `--mode auto`; clusters can also be configured manually via the serial console after boot.
+> **Note:** ACS (Auto-Cluster Setup) via the serial-console first-boot wizard is supported in `--mode auto`; clusters can also be configured manually via the serial console after boot.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ By default the script looks for boot drives in a `bootdrives/` directory next to
 ## Usage
 
 ```
-build-kvm-pscale-cluster-v3.0.py COMMAND [OPTIONS]
+isi_kvm_lab.py COMMAND [OPTIONS]
 ```
 
 ### Commands
@@ -38,7 +38,7 @@ build-kvm-pscale-cluster-v3.0.py COMMAND [OPTIONS]
 Builds VMs and network resources; you configure the cluster yourself via the serial console after boot.
 
 ```bash
-./build-kvm-pscale-cluster-v3.0.py --build \
+./isi_kvm_lab.py --build \
     --cluster mycluster \
     --version 9.13.0.0r \
     --nodes 3
@@ -55,7 +55,7 @@ telnet 127.0.0.1 <serial-port>
 Builds VMs, generates `cluster.cfg`, pushes it to node1's serial-console wizard, reboots, then waits for the cluster to come up. Implies `--autostart`.
 
 ```bash
-./build-kvm-pscale-cluster-v3.0.py --build \
+./isi_kvm_lab.py --build \
     --cluster mycluster \
     --version 9.13.0.0r \
     --nodes 3 \
@@ -67,7 +67,7 @@ Unspecified `--cfg-*` fields are prompted for interactively (or use built-in def
 ### Destroy a cluster
 
 ```bash
-./build-kvm-pscale-cluster-v3.0.py --destroy --cluster mycluster
+./isi_kvm_lab.py --destroy --cluster mycluster
 ```
 
 Add `--force` to skip the confirmation prompt.
@@ -75,7 +75,7 @@ Add `--force` to skip the confirmation prompt.
 ### List clusters
 
 ```bash
-./build-kvm-pscale-cluster-v3.0.py --list
+./isi_kvm_lab.py --list
 ```
 
 ## Build Options
