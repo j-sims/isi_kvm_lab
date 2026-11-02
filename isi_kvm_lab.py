@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """Build/destroy/list OneFS-on-KVM proto-storage clusters.
 
-Python port of build-kvm-pscale-cluster-v2.0.sh.  No ACS auto-cluster
-configuration is attempted -- OneFS does not support it on KVM, so
-clusters must be configured manually via the serial console after boot.
+Python port of build-kvm-pscale-cluster-v2.0.sh.  Supports two modes:
+  manual (default): VMs and networks are built; the cluster is configured
+    by hand via the serial console after boot.
+  auto: partial ACS (Auto-Cluster Setup).  A generated cluster.cfg is
+    pushed to node1 through its serial-console first-boot wizard, then the
+    remaining nodes are joined via the PAPI add-node call.
 
 All environment-specific values (paths, VM hardware sizing, network
 names, cluster.cfg defaults, timeouts) live in a YAML config file next
